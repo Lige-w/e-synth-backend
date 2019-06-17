@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_234038) do
+ActiveRecord::Schema.define(version: 2019_06_17_160843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "oscillators", force: :cascade do |t|
     t.float "frequency"
-    t.string "type"
+    t.string "wave_type"
     t.float "gain"
     t.bigint "pad_id"
     t.datetime "created_at", null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_06_13_234038) do
   end
 
   create_table "pads", force: :cascade do |t|
-    t.string "key"
+    t.string "key_name"
     t.float "gain"
     t.bigint "setup_id"
     t.datetime "created_at", null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_06_13_234038) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["user_id"], name: "index_setups_on_user_id"
   end
 
